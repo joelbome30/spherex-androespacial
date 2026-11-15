@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101215">
+  <meta name="description" content="Gabriela Meza’s Grade 8D project about NASA’s SPHEREx mission.">
+  <title>SPHEREx | Gabriela Meza</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Skip to content</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interior">
+      <a class="marca" href="#inicio">SPHEREx <span>/ school project</span></a>
+      <button class="boton-menu" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="navegacion" id="menu-principal" aria-label="Main navigation">
+        <a href="#inicio">Home</a>
+        <a href="#mision">Mission</a>
+        <a href="#noticias">Updates</a>
+        <a href="#fuentes">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="zona-portada">
+      <section class="portada contenedor" id="inicio" aria-labelledby="titulo-principal">
+        <h1 id="titulo-principal">The sky in 102 colors.</h1>
+        <p class="introduccion">SPHEREx maps the sky in infrared light. Explore its images, mission data and latest milestones.</p>
+        <a class="boton" href="#mision">Explore the mission</a>
+        <p class="autor">A project by <strong>Gabriela Meza</strong><br>Grade 8D · IED Bilingüe Nueva Granada</p>
+      </section>
+    </div>
+
+    <figure class="mapa contenedor">
+      <div class="imagen-mapa">
+        <img src="./assets/cielo.jpg" width="1700" height="956" alt="Full-sky infrared map captured by SPHEREx">
+      </div>
+      <figcaption>Full-sky infrared map · NASA <a href="https://svs.gsfc.nasa.gov/31376/" target="_blank" rel="noopener noreferrer">View original image</a></figcaption>
+    </figure>
+
+    <section class="seccion mision contenedor" id="mision" aria-labelledby="titulo-mision">
+      <div>
+        <h2 id="titulo-mision">SPHEREx sees</h2>
+        <p>The telescope records light our eyes cannot see. Its measurements reveal galaxies, dust clouds and interstellar ice.</p>
+      </div>
+      <dl class="cifras">
+        <div><dt>Infrared bands</dt><dd>102</dd></div>
+        <div><dt>Planned sky surveys</dt><dd>4</dd></div>
+        <div><dt>Wavelength range</dt><dd>0.75–5 <small>µm</small></dd></div>
+        <div><dt>Launched Mar 11</dt><dd>2025</dd></div>
+      </dl>
+      <figure class="observacion">
+        <img src="./assets/polvo-estelar.jpg" width="1536" height="863" alt="Dust cloud and stars revealed by SPHEREx infrared observations">
+        <figcaption><strong>Infrared reveals hidden dust.</strong><span>SPHEREx captured this cloud in the Large Magellanic Cloud at a wavelength of 3.29 microns.</span><a href="https://science.nasa.gov/photojournal/spherexs-dust-cloud-reveal/" target="_blank" rel="noopener noreferrer">Image: NASA/JPL-Caltech</a></figcaption>
+      </figure>
+    </section>
+
+    <section class="seccion noticias-fondo" id="noticias" aria-labelledby="titulo-noticias">
+      <div class="contenedor">
+        <div class="noticias-cabecera">
+          <div><h2 id="titulo-noticias">News and data</h2><p>Updates from the mission and its science archive.</p></div>
+          <div class="filtros" role="group" aria-label="Filter updates">
+            <button type="button" data-filtro="todas" aria-pressed="true">All</button>
+            <button type="button" data-filtro="datos" aria-pressed="false">Data</button>
+            <button type="button" data-filtro="nasa" aria-pressed="false">NASA</button>
+          </div>
+        </div>
+        <div class="lista-noticias">
+          <article class="noticia" data-tipo="datos">
+            <p>Data · IRSA · Nov 12, 2026</p>
+            <h3><a href="https://irsa.ipac.caltech.edu/spherex-archive-documentation/spherex-data-releases/" target="_blank" rel="noopener noreferrer">First science release brings together two sky surveys</a></h3>
+            <span>Reprocessed images and a full-sky spectral data cube.</span>
+          </article>
+          <article class="noticia" data-tipo="nasa">
+            <p>NASA · Oct 8, 2026</p>
+            <h3><a href="https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/" target="_blank" rel="noopener noreferrer">SPHEREx reveals a variety of brown dwarfs</a></h3>
+          </article>
+          <article class="noticia" data-tipo="datos">
+            <p>Data · IRSA · Sep 2026</p>
+            <h3><a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" target="_blank" rel="noopener noreferrer">Third quick release begins publishing images</a></h3>
+            <span>Includes spectral images from surveys 3 and 4.</span>
+          </article>
+          <article class="noticia" data-tipo="nasa">
+            <p>NASA · Apr 17, 2026</p>
+            <h3><a href="https://www.nasa.gov/image-article/nasas-spherex-observatory-maps-interstellar-ice-in-milky-way/" target="_blank" rel="noopener noreferrer">SPHEREx maps interstellar ice in the Milky Way</a></h3>
+          </article>
+          <article class="noticia" data-tipo="nasa">
+            <p>NASA · Dec 18, 2025</p>
+            <h3><a href="https://www.nasa.gov/missions/spherex/nasas-spherex-observatory-completes-first-cosmic-map-like-no-other/" target="_blank" rel="noopener noreferrer">SPHEREx completes its first full-sky infrared map</a></h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion historia contenedor" aria-labelledby="titulo-historia">
+      <div>
+        <h2 id="titulo-historia">Mission timeline</h2>
+        <ol class="hitos">
+          <li><time datetime="2025-03-11">March 2025</time><span>Observatory launch.</span></li>
+          <li><time datetime="2025-12-18">December 2025</time><span>First complete infrared sky map.</span></li>
+          <li><time datetime="2026-09">September 2026</time><span>Images from surveys 3 and 4.</span></li>
+          <li><time datetime="2026-11">November 2026</time><span>First science data release.</span></li>
+        </ol>
+      </div>
+      <figure><img src="./assets/orbita.jpg" width="1280" height="720" alt="Illustration of the SPHEREx telescope in orbit"><figcaption>Illustration: NASA/JPL-Caltech</figcaption></figure>
+    </section>
+
+    <section class="seccion fuentes-fondo" id="fuentes" aria-labelledby="titulo-fuentes">
+      <div class="contenedor fuentes">
+        <h2 id="titulo-fuentes">Official sources</h2>
+        <div class="lista-fuentes">
+          <a href="https://science.nasa.gov/mission/spherex/" target="_blank" rel="noopener noreferrer"><span>Mission overview</span><small>NASA</small></a>
+          <a href="https://irsa.ipac.caltech.edu/Missions/spherex.html" target="_blank" rel="noopener noreferrer"><span>Science archive</span><small>IRSA</small></a>
+          <a href="https://irsa.ipac.caltech.edu/spherex-archive-documentation/" target="_blank" rel="noopener noreferrer"><span>Data guide</span><small>NASA/IPAC</small></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>Gabriela Meza · Grade 8D</span>
+      <a href="https://science.nasa.gov/photojournal/nasas-spherex-mission-maps-water-ice-throughout-cygnus-x/" target="_blank" rel="noopener noreferrer">Hero image: NASA/JPL-Caltech/IPAC/Hora et al.</a>
+    </div>
+  </footer>
+</body>
+</html>
