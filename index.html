@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080d14">
+  <meta name="theme-color" content="#101215">
   <meta name="description" content="Gabriela Meza’s Grade 8D project about NASA’s SPHEREx mission.">
   <title>SPHEREx | Gabriela Meza</title>
   <link rel="stylesheet" href="./style.css">
@@ -15,7 +15,10 @@
   <header class="cabecera">
     <div class="contenedor cabecera-interior">
       <a class="marca" href="#inicio">SPHEREx <span>/ school project</span></a>
-      <nav class="navegacion" aria-label="Main navigation">
+      <button class="boton-menu" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="navegacion" id="menu-principal" aria-label="Main navigation">
         <a href="#inicio">Home</a>
         <a href="#mision">Mission</a>
         <a href="#noticias">Updates</a>
