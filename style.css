@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Space Grotesk";
-  src: url("assets/space-grotesk.woff2") format("woff2");
+  src: url("./assets/space-grotesk.woff2") format("woff2");
   font-weight: 400 700;
   font-display: swap;
 }
@@ -35,21 +35,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--acento); outlin
 .navegacion a { color: var(--secundario); font-size: .9rem; }
 .navegacion a:hover { color: var(--texto); }
 
-.zona-portada { position: relative; min-height: calc(118svh - var(--alto-cabecera)); background: var(--panel) url("assets/nube-espacial.jpg") center 45% / cover; }
+.zona-portada { position: relative; min-height: calc(118svh - var(--alto-cabecera)); background: var(--panel) url("./assets/nube-espacial.jpg") center 45% / cover; }
 .zona-portada::before { content: ""; position: absolute; inset: 0; background: rgba(5, 11, 18, .72); }
 .portada { position: sticky; top: var(--alto-cabecera); z-index: 1; min-height: calc(100svh - var(--alto-cabecera)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; padding-block: 2.5rem; text-align: center; }
 h1, h2, h3, p, figure { margin: 0; }
 h1 { max-width: 12ch; font-size: clamp(3.3rem, 6.5vw, 5.9rem); line-height: 1; letter-spacing: -.07em; text-wrap: balance; }
 .introduccion { max-width: 38rem; color: #d6e0e5; font-size: clamp(1rem, 1.5vw, 1.15rem); }
-.boton { display: inline-block; padding: .8rem 1.25rem; background: var(--acento); color: var(--fondo); font-weight: 700; }
-.boton:hover { background: #b2eef3; }
+.boton { display: inline-block; padding: .8rem 1.25rem; background: var(--acento); color: var(--fondo); font-weight: 700; transition: background .2s, transform .2s; }
+.boton:hover { background: #b2eef3; transform: translateY(-2px); }
+.boton:active { transform: translateY(0); }
 .autor { color: #d6e0e5; font-size: .88rem; }
 .autor strong { color: var(--texto); }
+.portada h1, .portada .introduccion, .portada .boton, .portada .autor { animation: aparecer .6s ease-out both; }
+.portada .introduccion { animation-delay: .1s; }
+.portada .boton { animation-delay: .2s; }
+.portada .autor { animation-delay: .3s; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
 .mapa { padding-block: 5rem 4rem; }
 .imagen-mapa { position: relative; background: #000; }
 .imagen-mapa img { display: block; width: 100%; height: auto; }
-.etiquetas-mapa { position: absolute; top: 0; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; padding: .45rem 0; background: #000; color: var(--secundario); text-align: center; font-size: .82rem; }
 .mapa figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .7rem; color: var(--secundario); font-size: .85rem; }
 .mapa figcaption a { color: var(--acento); }
 
@@ -61,8 +66,14 @@ h2 { margin-bottom: 1.4rem; font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height
 .cifras dt { color: var(--secundario); font-size: .85rem; }
 .cifras dd { margin: .3rem 0 0; font-size: clamp(2.6rem, 4vw, 3.8rem); line-height: 1; font-weight: 600; letter-spacing: -.07em; }
 .cifras small { font-size: .45em; }
-.cifras .fecha { font-size: clamp(2rem, 3vw, 3rem); white-space: nowrap; }
-.cifras .fecha small { margin-left: .3rem; letter-spacing: 0; }
+.cifras div:nth-child(3) dd { font-size: clamp(2rem, 3.2vw, 3.3rem); white-space: nowrap; }
+.observacion { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr 1fr; align-items: end; gap: 2rem; margin-top: 1rem; }
+.observacion img { display: block; width: 100%; height: clamp(14rem, 32vw, 26rem); object-fit: cover; }
+.observacion figcaption { max-width: 24rem; }
+.observacion strong { display: block; font-size: 1.6rem; line-height: 1.2; letter-spacing: -.04em; }
+.observacion span { display: block; margin-top: .7rem; color: var(--secundario); }
+.observacion a { display: inline-block; margin-top: 1rem; color: var(--acento); font-size: .85rem; }
+.observacion a:hover { text-decoration: underline; }
 
 .noticias-fondo, .fuentes-fondo, .pie { background: var(--panel); }
 .noticias-cabecera { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2rem; }
@@ -72,7 +83,10 @@ h2 { margin-bottom: 1.4rem; font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height
 .filtros button { border: 0; padding: .55rem .9rem; background: var(--tarjeta); color: var(--secundario); }
 .filtros button:hover, .filtros button[aria-pressed="true"] { background: var(--acento); color: var(--fondo); }
 .lista-noticias { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.noticia { padding: 1.5rem; background: var(--tarjeta); }
+.noticia { padding: 1.5rem; background: var(--tarjeta); transition: background .2s, transform .2s; }
+.noticia:hover, .noticia:focus-within { background: #23394b; transform: translateY(-3px); }
+.noticia:first-child { grid-column: 1 / -1; padding: 2rem; background: #203246; }
+.noticia:first-child h3 { max-width: 30ch; font-size: 1.65rem; }
 .noticia p { margin-bottom: .7rem; color: var(--acento); font-size: .85rem; }
 .noticia h3 { font-size: 1.35rem; line-height: 1.3; letter-spacing: -.03em; }
 .noticia h3 a:hover { color: var(--acento); }
@@ -83,41 +97,58 @@ h2 { margin-bottom: 1.4rem; font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height
 .hitos li { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; }
 .hitos time { color: var(--acento); }
 .hitos span { color: var(--secundario); }
-.historia img { display: block; width: 100%; height: auto; }
+.historia figure { overflow: hidden; }
+.historia img { display: block; width: 100%; height: auto; transition: transform .5s; }
+.historia figure:hover img { transform: scale(1.03); }
 .historia figcaption { margin-top: .5rem; color: var(--secundario); font-size: .82rem; }
 .fuentes h2 { margin: 0; }
 .lista-fuentes { display: grid; gap: .8rem; }
-.lista-fuentes a { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; background: var(--tarjeta); }
-.lista-fuentes a:hover { color: var(--acento); }
+.lista-fuentes a { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; background: var(--tarjeta); transition: background .2s, transform .2s; }
+.lista-fuentes a:hover { background: #23394b; transform: translateX(4px); }
 .lista-fuentes small { color: var(--secundario); }
 .pie .contenedor { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; color: var(--secundario); font-size: .8rem; }
 .pie a:hover { color: var(--acento); }
 
 @media (max-width: 800px) {
   .mision, .historia, .fuentes { grid-template-columns: 1fr; gap: 2.5rem; }
+  .observacion { grid-template-columns: 1fr; gap: 1rem; }
   .noticias-cabecera { align-items: start; flex-direction: column; }
 }
 
 @media (max-width: 600px) {
-  :root { --alto-cabecera: 6rem; }
+  :root { --alto-cabecera: 5.35rem; }
   .contenedor { width: calc(100% - 2rem); }
   .cabecera-interior { align-items: start; flex-direction: column; justify-content: center; gap: .4rem; }
-  .navegacion { gap: 1.1rem; }
+  .navegacion { gap: 1rem; }
   .navegacion a { font-size: .82rem; }
-  .zona-portada { min-height: calc(112svh - var(--alto-cabecera)); }
-  .portada { gap: 1.4rem; padding-block: 2rem; }
-  h1 { font-size: clamp(2.7rem, 12vw, 4rem); }
+  .zona-portada { min-height: 0; }
+  .portada { position: relative; top: auto; min-height: calc(100svh - var(--alto-cabecera)); gap: 1.1rem; padding-block: 2rem; }
+  h1 { font-size: clamp(2.55rem, 11vw, 4rem); }
   .introduccion { font-size: .95rem; }
   .autor { font-size: .78rem; }
-  .mapa { padding-block: 3rem; }
-  .etiquetas-mapa { padding: .2rem 0; font-size: .7rem; }
+  .mapa { padding-block: 2.5rem; }
+  .mapa figcaption { flex-direction: column; gap: .2rem; }
+  .observacion img { height: 14rem; }
   .seccion { padding-block: 4rem; }
   .cifras { gap: 1.8rem 1rem; }
   .lista-noticias { grid-template-columns: 1fr; }
+  .noticia:first-child { grid-column: auto; padding: 1.5rem; }
+  .noticia:first-child h3 { font-size: 1.35rem; }
   .hitos li { grid-template-columns: 1fr; gap: .1rem; }
   .pie .contenedor { flex-direction: column; }
 }
 
+@media (max-width: 360px) {
+  .navegacion { width: 100%; justify-content: space-between; gap: .25rem; }
+  .navegacion a { font-size: .78rem; }
+  .portada { gap: .85rem; padding-block: 1.7rem; }
+  h1 { font-size: 2.45rem; }
+  .introduccion { font-size: .88rem; line-height: 1.45; }
+  .boton { padding: .65rem 1rem; font-size: .9rem; }
+  .autor { font-size: .73rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
